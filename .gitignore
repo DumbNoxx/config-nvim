@@ -1,0 +1,29 @@
+
+# Gitignore recomendado para Lua
+
+# Binarios y librerías compiladas
+*.luac
+*.so
+*.dll
+*.dylib
+
+# Dependencias locales (LuaRocks)
+.luarocks/
+rocks/
+
+# Carpetas de construcción/build
+build/
+bin/
+obj/
+
+# Archivos de sistema y editores
+.DS_Store
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Archivos temporales
+*.tmp
+*.log
+.cache/
