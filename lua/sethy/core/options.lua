@@ -51,5 +51,3 @@ vim.g.editorconfig = true
 vim.opt.guicursor = "n-v-c:block,i-ci-ve:ver25-blinkon250-blinkoff250"
 
 
-vim.api.nvim_set_hl(0, "Normal", { bg = "none", ctermbg = "none" })
-vim.api.nvim_set_hl(0, "NormalNC", { bg = "none", ctermbg = "none" })
