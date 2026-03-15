@@ -64,3 +64,5 @@ vim.keymap.set("n", "<leader>l", ":Lazy<CR>")
 vim.keymap.set("n", "<leader>e", ":lua MiniFiles.open()<CR>")
 
 vim.keymap.set('n', 'gl', vim.diagnostic.open_float)
+
+vim.keymap.set("n", "<leader>gdi", vim.lsp.buf.definition, {desc = ""})
