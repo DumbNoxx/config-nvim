@@ -1,4 +1,4 @@
 return {
-	"DumbNoxx/pulse.nvim",
-	opts = {},
+    "DumbNoxx/pulse.nvim",
+    opts = {},
 }
