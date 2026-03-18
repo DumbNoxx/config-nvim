@@ -1,21 +1,34 @@
 return {
-    "windwp/nvim-autopairs",
-    event = { "InsertEnter" },
+    "hrsh7th/nvim-cmp",
     dependencies = {
-        "hrsh7th/nvim-cmp",
+        "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-buffer",
+        "hrsh7th/cmp-path",
+        "L3MON4D3/LuaSnip",
+        "saadparwaiz1/cmp_luasnip",
     },
-    config = function() 
-        local autpairs = require("nvim-autopairs")
-
-        autpairs.setup({
-            check_ts = true,
-            ts_config = {
-                lua = { "string" },
-                javascript = { "template_string" },
-            },
-        })
-        local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+    config = function()
         local cmp = require("cmp")
-        cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done()) 
+
+        cmp.setup({
+            snippet = {
+                expand = function(args)
+                    require("luasnip").lsp_expand(args.body)
+                end,
+            },
+            mapping = cmp.mapping.preset.insert({
+                ["<C-k>"] = cmp.mapping.select_prev_item(),        
+                ["<C-j>"] = cmp.mapping.select_next_item(),       
+                ["<C-Space>"] = cmp.mapping.complete(),           
+                ["<CR>"] = cmp.mapping.confirm({ select = true }), 
+            }),
+            sources = cmp.config.sources({
+                { name = "nvim_lsp" }, 
+                { name = "luasnip" },
+            }, {
+                { name = "buffer" },
+                { name = "path" },
+            }),
+        })
     end,
 }
