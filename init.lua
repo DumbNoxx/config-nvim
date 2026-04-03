@@ -1,2 +1,2 @@
 require("sethy.core")
-require("sethy.lazy")
+require("sethy.plugins")
